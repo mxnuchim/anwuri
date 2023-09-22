@@ -95,7 +95,7 @@ export const TAB_DATA = [
         <li>Usability Testing</li>
         <li>Interaction Design</li>
         <li>Information Architecture</li>
-        <li>Proficiency in design software (Figma, Framer, Adobe XD)</li>
+        <li>Design software (Figma, Framer, Adobe XD)</li>
       </ul>
     ),
   },
