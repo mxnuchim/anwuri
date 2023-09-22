@@ -2,54 +2,20 @@
 import React, { useTransition, useState } from 'react';
 import Image from 'next/image';
 import TabButton from './TabButton';
-import { aboutText } from '../data';
+import { aboutText, TAB_DATA } from '../data';
+import Lottie from 'lottie-react';
 
-const TAB_DATA = [
-  {
-    title: 'Hard Skills',
-    id: 'hard-skills',
-    content: (
-      <ul className="list-disc pl-2">
-        <li>User Experience (UX) Design</li>
-        <li>User Interface (UI) Design</li>
-        <li>User Research</li>
-        <li>Wireframing</li>
-        <li>Prototyping</li>
-        <li>Usability Testing</li>
-        <li>Interaction Design</li>
-        <li>Visual Design</li>
-        <li>Information Architecture</li>
-        <li>Proficiency in design software (Figma, Framer, Adobe XD)</li>
-      </ul>
-    ),
+import { animations } from '../../../public';
+
+const { aboutAnimation } = animations;
+
+const animationOptions = {
+  loop: true,
+  autoplay: true,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
   },
-  {
-    title: 'Soft Skills',
-    id: 'soft-skills',
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Communication</li>
-        <li>Problem Solving</li>
-        <li>Collaboration</li>
-        <li>Creativity</li>
-        <li>Empathy</li>
-        <li>Time Management</li>
-        <li>Critical Thinking</li>
-        <li>Attention to detail</li>
-      </ul>
-    ),
-  },
-  {
-    title: 'Education',
-    id: 'education',
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Google UX Design Professional Certificate</li>
-        <li>BA, Marketing, Rivers State University</li>
-      </ul>
-    ),
-  },
-];
+};
 
 const AboutSection = () => {
   const [tab, setTab] = useState('hard-skills');
@@ -63,11 +29,29 @@ const AboutSection = () => {
 
   return (
     <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} />
+      <div className="md:grid md:grid-cols-1 lg:grid-cols-2 gap-8 items-center py-8 px-2 xl:gap-16 sm:py-16 xl:px-16">
+        <div className="w-[250px] h-[250px] md:w-[350px] md:h-[350px]">
+          <Lottie
+            options={animationOptions}
+            animationData={aboutAnimation}
+            className=" w-full h-full mb-0 lg:mb-44"
+          />
+        </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">{aboutText}</p>
+          <p className="text-base lg:text-lg">
+            I&apos;m Anwuri, a dedicated UI/UX designer with a passion for
+            creating exceptional digital experiences. With a keen eye for
+            user-centered design and a deep understanding of the principles that
+            make interfaces intuitive and engaging, I thrive on turning complex
+            problems into elegant and user-friendly solutions. <br />
+            My journey in the world of design has allowed me to collaborate with
+            diverse teams and clients, transforming ideas into visually stunning
+            and highly functional products. From wireframes to prototypes and
+            user testing, I&apos;m committed to every phase of the design
+            process, ensuring that the end result not only meets but exceeds
+            expectations.
+          </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
               selectTab={() => handleTabChange('hard-skills')}
